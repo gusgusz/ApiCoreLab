@@ -1,9 +1,5 @@
 import User from 'App/Models/User'
 import Route from '@ioc:Adonis/Core/Route'
-import Hash from '@ioc:Adonis/Core/Hash'
-import UsersController from 'App/Controllers/Http/UsersController'
-
-
 
 
 Route.group(() => {
@@ -14,5 +10,12 @@ Route.group(() => {
   Route.post('register', "UsersController.store")
 
   Route.post('login', "UsersController.login")
+ 
+
+  Route.post('cards', "CardsController.store").middleware('auth')
+  Route.get('cards', "CardsController.show").middleware('auth')
+  Route.put('cards/:id', "CardsController.update").middleware('auth')
+  Route.delete('cards/:id', "CardsController.destroy").middleware('auth')
+  
  
 }).prefix('/api')

@@ -48,5 +48,12 @@ export default class Card extends BaseModel {
     foreignKey: 'cardId',
   })
   public todos: HasMany<typeof ToDo>
+
+  constructor() {
+    super()
+    this.isFavorite = false
+
+  }
+
 }
 
