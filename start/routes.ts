@@ -1,3 +1,4 @@
+import 'reflect-metadata';
 
 import Route from '@ioc:Adonis/Core/Route'
 
