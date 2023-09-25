@@ -1,7 +1,6 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Card from 'App/Models/Card'
 import ToDo from 'App/Models/ToDo'
-import User from 'App/Models/User'
 
 export default class CardsController {
   public async store({ auth, request, response }: HttpContextContract) {

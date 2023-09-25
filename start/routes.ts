@@ -1,4 +1,4 @@
-import User from 'App/Models/User'
+
 import Route from '@ioc:Adonis/Core/Route'
 
 
