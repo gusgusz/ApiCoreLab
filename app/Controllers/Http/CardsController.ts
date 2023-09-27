@@ -29,6 +29,30 @@ export default class CardsController {
     }
   }
 
+  public async search({ auth, request, response }: HttpContextContract) {
+    const user = auth.user
+
+    if (!user) {
+      return response.unauthorized({ error: 'User not authenticated' })
+    }
+
+    const body = request.body()
+    if(!body.search) return response.badRequest({ error: 'Search is required' });
+
+    try {
+      const cards = await user
+        ?.related('cards')
+        .query()
+        .where('title', 'like', `%${body.search}%`)
+        .orWhere('text', 'like', `%${body.search}%`)
+    
+
+      return cards
+    } catch (error) {
+      return response.status(500).send({ error: 'Internal Server Error' })
+    }
+  }
+
   public async show({ auth, response }: HttpContextContract) {
     const user = auth.user
     const card = await user?.related('cards').query().where('user_id', user.id)

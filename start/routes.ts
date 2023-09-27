@@ -17,6 +17,7 @@ Route.group(() => {
   Route.get('cards', "CardsController.show").middleware('auth')
   Route.put('cards/:id', "CardsController.update").middleware('auth')
   Route.delete('cards/:id', "CardsController.destroy").middleware('auth')
+  Route.post('cards/search', "CardsController.search").middleware('auth')
   
  
 }).prefix('/api')
