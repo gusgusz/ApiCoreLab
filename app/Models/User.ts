@@ -15,6 +15,10 @@ export default class User extends BaseModel {
   
   @column()
   public password: string;
+
+  @hasMany(() => Favorite)
+public favorites: HasMany<typeof Favorite>
+
   
 
   @hasMany(() => Card, {

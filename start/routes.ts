@@ -19,5 +19,11 @@ Route.group(() => {
   Route.delete('cards/:id', "CardsController.destroy").middleware('auth')
   Route.post('cards/search', "CardsController.search").middleware('auth')
   
+  Route.get('favorites', 'FavoritesController.index')
+  Route.post('favorites', 'FavoritesController.store')
+  Route.delete('favorites/:name', 'FavoritesController.destroy')
+
+
+  
  
 }).prefix('/api')
