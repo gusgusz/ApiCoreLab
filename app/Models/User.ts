@@ -1,6 +1,7 @@
 import { DateTime } from 'luxon';
 import { BaseModel, column, hasMany, HasMany, beforeSave } from '@ioc:Adonis/Lucid/Orm';
 import Card from './Card';
+import Favorite from './Favorite'
 import Hash from '@ioc:Adonis/Core/Hash';
 
 export default class User extends BaseModel {
